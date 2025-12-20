@@ -13,6 +13,10 @@ def print_banner():
 
 print_banner()
 
+if os.geteuid() != 0:
+    print("[!] zspoof must be run as root")
+    sys.exit(1)
+
 parser = argparse.ArgumentParser()
 parser.add_argument('-v', '--verbose', action="store_true")
 args = parser.parse_args()
