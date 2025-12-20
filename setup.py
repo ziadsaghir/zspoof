@@ -4,9 +4,11 @@ setup(
     name="zspoof",
     version="0.1.0",
     py_modules=["toolkit"],
-    install_requires=[
-        "tqdm"
-    ],
+    install_requires=["tqdm"],
+    include_package_data=True,
+    package_data={
+        "": ["header.txt"],
+    },
     entry_points={
         "console_scripts": [
             "zspoof=toolkit:main"

@@ -1,15 +1,15 @@
 import csv, subprocess, platform, re, random, sys, argparse, os, time
 from tqdm import tqdm
+from importlib.resources import files
 
 def processing_bar():
     for _ in tqdm(range(100), desc="Processing your demand", ncols=70):
         time.sleep(0.01)
 
+
 def print_banner():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    header_path = os.path.join(base_dir, "header.txt")
-    with open(header_path, "r") as f:
-        print(f.read())
+    header_path = files("toolkit").joinpath("header.txt")
+    print(header_path.read_text())
 
 print_banner()
 
@@ -77,7 +77,6 @@ match option:
         subprocess.run(["ip", "link", "set", "dev", current_iface, "down"], check=True)
         subprocess.run(["ip", "link", "set", "dev", current_iface, "address", new_mac], check=True)
         subprocess.run(["ip", "link", "set", "dev", current_iface, "up"], check=True)
-
 
         processing_bar()
         print("Quick reminder:")
