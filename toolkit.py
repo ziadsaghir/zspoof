@@ -76,9 +76,9 @@ match option:
                     break
                 print("\nBro, your MAC isn't MACcing (incorrect MAC address), verify your input please!")
         else:
-            subprocess.run(["ifconfig", current_iface, "down"])
+            subprocess.run(["ifconfig", current_iface, "down"], shell=True)
             subprocess.run(["ifconfig", current_iface, "hw", "ether", new_mac])
-            subprocess.run(["ifconfig", current_iface, "up"])               
+            subprocess.run(["ifconfig", current_iface, "up"], shell=True)               
             processing_bar()
             print("Quick reminder:\n-> Your original MAC address: ",my_mac) 
             print("-> Your new MAC address: ",new_mac) 
