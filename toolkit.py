@@ -70,9 +70,10 @@ match option:
                     break
                 print("\nBro, your MAC isn't MACcing (incorrect MAC address), verify your input please!")
 
-        subprocess.run(["ifconfig", current_iface, "down"], shell=True)
-        subprocess.run(["ifconfig", current_iface, "hw", "ether", new_mac], shell=True)
-        subprocess.run(["ifconfig", current_iface, "up"], shell=True)
+        subprocess.run(["ip", "link", "set", "dev", current_iface, "down"], check=True)
+        subprocess.run(["ip", "link", "set", "dev", current_iface, "address", new_mac], check=True)
+        subprocess.run(["ip", "link", "set", "dev", current_iface, "up"], check=True)
+
 
         processing_bar()
         print("Quick reminder:")
