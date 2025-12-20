@@ -18,10 +18,7 @@ def print_banner():
 print_banner()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('myMAC')
-parser.add_argument('targetMAC')
 parser.add_argument('-v', '--verbose', action="store_true")
-parser.add_argument('--oui', type=str)
 
 args = parser.parse_args()
 
@@ -29,8 +26,6 @@ if args.verbose:
     print("Verbose mode is ON")
 else:
     print("Verbose mode is OFF")
-
-print("Manufacturer:", args.oui)
 
 
 result=subprocess.run(
