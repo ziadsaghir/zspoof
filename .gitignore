@@ -1,0 +1,16 @@
+# Ignore compiled binaries
+bin/heavylifting
+*.o
+*.out
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore System files
+.DS_Store
+Thumbs.db
+
+# Ignore Virtual Environments
+venv/
+env/
