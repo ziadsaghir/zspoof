@@ -1,20 +1,14 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="zspoof",
     version="0.1.0",
-    py_modules=["toolkit"],
-    install_requires=["tqdm"],
+    packages=find_packages(),
     include_package_data=True,
-    package_data={
-        "": ["header.txt"],
-    },
+    install_requires=["tqdm"],
     entry_points={
         "console_scripts": [
-            "zspoof=toolkit:main"
-        ]
+            "zspoof = zspoof.toolkit:main",
+        ],
     },
-    author="Ziad SAGHIR",
-    description="MAC address manipulation & analysis tool",
-    license="MIT",
 )
