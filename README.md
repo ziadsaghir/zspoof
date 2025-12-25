@@ -30,7 +30,7 @@ Unlike standard tools that generate random noise, **ZSPOOF** generates **Weighte
 ### Setup
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/YOUR_USERNAME/zspoof.git](https://github.com/YOUR_USERNAME/zspoof.git)
+git clone [https://github.com/ziadsaghir/zspoof.git](https://github.com/ziadsaghir/zspoof.git)
 cd zspoof
 
 # 2. Install Python dependencies
