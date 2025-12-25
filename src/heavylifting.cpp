@@ -6,16 +6,16 @@
 #include <ctime>
 #include <iomanip>
 
-// Structure to hold Vendor OUI data
+
 struct Vendor {
-    // We removed 'name' because it was redundant and causing the compile error
+
     std::vector<std::string> ouis;
 };
 
-// Profile types
+
 enum ProfileType { CORPORATE, CAFE, IOT, GAMER, RANDOM };
 
-// Database of Vendors and their OUIs
+
 std::map<std::string, Vendor> db = {
     {"dell",    {{"00:14:22", "00:11:43", "F0:4D:A2", "90:B1:1C"}}}, // Laptops
     {"lenovo",  {{"00:59:07", "80:96:B1", "E0:2C:B2"}}},            // Laptops
@@ -29,7 +29,7 @@ std::map<std::string, Vendor> db = {
     {"nintendo",{{"98:B6:E9", "00:09:BF"}}}                         // Switch
 };
 
-// Generate a completely random byte
+
 std::string get_random_byte(std::mt19937& rng) {
     std::uniform_int_distribution<int> dist(0, 255);
     int val = dist(rng);
@@ -38,11 +38,11 @@ std::string get_random_byte(std::mt19937& rng) {
     return ss.str();
 }
 
-// The Intelligence Core
+
 std::string generate_smart_mac(std::string profile_str) {
     std::mt19937 rng(static_cast<unsigned int>(std::time(nullptr)));
     
-    // Weighted list of vendors based on environment
+
     std::vector<std::string> candidates;
     std::vector<double> weights;
 
@@ -63,7 +63,7 @@ std::string generate_smart_mac(std::string profile_str) {
         weights =    { 40.0,   40.0,      20.0 }; 
     }
     else {
-        // Pure Random Logic (Unicast/Local bit set)
+
         std::string b1 = get_random_byte(rng);
         const char hex_chars[] = {'2', '6', 'A', 'E'};
         b1[1] = hex_chars[rng() % 4]; 
@@ -73,16 +73,16 @@ std::string generate_smart_mac(std::string profile_str) {
         return mac;
     }
 
-    // Weighted Selection
+
     std::discrete_distribution<int> dist(weights.begin(), weights.end());
     std::string selected_vendor = candidates[dist(rng)];
     
-    // Pick an OUI from that vendor
+
     Vendor& v = db[selected_vendor];
     std::uniform_int_distribution<int> oui_dist(0, v.ouis.size() - 1);
     std::string oui = v.ouis[oui_dist(rng)];
 
-    // Generate the last 3 bytes (NIC specific)
+
     std::string nic_part = get_random_byte(rng) + ":" + get_random_byte(rng) + ":" + get_random_byte(rng);
 
     return oui + ":" + nic_part;

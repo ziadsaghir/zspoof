@@ -6,11 +6,11 @@ import os
 import time
 from tqdm import tqdm
 
-# --- Config & Paths ---
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BIN_PATH = os.path.join(BASE_DIR, "../bin/heavylifting")
 
-# --- Colors for Terminal ---
+
 class Colors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -41,9 +41,9 @@ def get_cpp_mac(profile="random"):
 
 def get_current_state(iface):
     try:
-        # Get MAC
+
         mac = subprocess.check_output(f"cat /sys/class/net/{iface}/address", shell=True).decode().strip()
-        # Get OperState (up/down)
+
         state = subprocess.check_output(f"cat /sys/class/net/{iface}/operstate", shell=True).decode().strip()
         return mac, state
     except:
@@ -57,7 +57,7 @@ def change_mac(iface, new_mac):
     set_interface_state(iface, "down")
     
     print(f"{Colors.BLUE}[*] Burning new identity: {new_mac}{Colors.ENDC}")
-    time.sleep(0.5) # Dramatic pause for realism
+    time.sleep(0.5) 
     
     try:
         subprocess.run(["ip", "link", "set", "dev", iface, "address", new_mac], check=True)
@@ -77,7 +77,7 @@ def main():
         print(f"{Colors.FAIL}[!] Root access required.{Colors.ENDC}")
         sys.exit(1)
 
-    # Auto-detect interface with default route
+
     try:
         route = subprocess.check_output("ip route show default", shell=True).decode()
         current_iface = route.split("dev")[1].split()[0]
@@ -111,7 +111,7 @@ def main():
     if choice in profile_map:
         new_mac = get_cpp_mac(profile_map[choice])
         
-        # Fancy Progress Bar
+
         for _ in tqdm(range(100), desc="Rewriting Firmware Headers", ncols=70, bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt}"):
             time.sleep(0.005)
             
@@ -120,7 +120,7 @@ def main():
             print(f"    Your new digital fingerprint: {Colors.BOLD}{new_mac}{Colors.ENDC}")
             print(f"    Profile loaded: {profile_map[choice].upper()}")
             
-            # Offer Restore
+
             print(f"\n{Colors.WARNING}[?] When you are done, run the tool again or reboot to reset.{Colors.ENDC}")
     else:
         print("Invalid choice.")
