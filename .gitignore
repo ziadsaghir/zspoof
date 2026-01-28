@@ -1,16 +1,96 @@
-# Ignore compiled binaries
-bin/heavylifting
+# Compiled Binaries
+bin/core_engine
+bin/core_engine.exe
+bin/*.o
+bin/*.out
+*.exe
 *.o
 *.out
+*.so
+*.dylib
+*.dll
 
-# Ignore Python cache
+# Python Cache
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+*.egg
 
-# Ignore System files
-.DS_Store
-Thumbs.db
-
-# Ignore Virtual Environments
+# Virtual Environments
 venv/
 env/
+ENV/
+virtualenv/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Logs and Session Data
+logs/*.json
+logs/*.log
+logs/*.txt
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+tmp/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Test Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Documentation Build
+docs/_build/
+site/
+
+# Profiles (if they contain sensitive data)
+profiles/*.json
+
+# Security Sensitive
+*.key
+*.pem
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Build System
+.ninja_deps
+.ninja_log
+compile_commands.json
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.in

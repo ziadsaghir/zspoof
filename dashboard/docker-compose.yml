@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  zspoof-dashboard:
+    build:
+      context: ..
+      dockerfile: dashboard/Dockerfile
+    container_name: zspoof-dashboard
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../src:/app/src
+      - ../logs:/app/logs
+      - ../bin:/app/bin
+    network_mode: host
+    privileged: true
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+    command: python3 dashboard/backend/app.py

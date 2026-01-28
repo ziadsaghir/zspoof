@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Ziad
+Copyright (c) 2026 Ziad SAGHIR
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+ADDITIONAL TERMS AND CONDITIONS
+
+This software is provided for educational and authorized security testing 
+purposes only. The copyright holder and contributors assume no liability 
+for misuse of this software. Users are solely responsible for ensuring their 
+use of this software complies with all applicable laws and regulations.
+
+Unauthorized use of this software to access, intercept, or manipulate network 
+traffic without explicit permission is strictly prohibited and may violate 
+criminal laws including but not limited to the Computer Fraud and Abuse Act 
+(CFAA) in the United States and equivalent legislation in other jurisdictions.
+
+By using this software, you acknowledge that you have read, understood, and 
+agree to comply with all applicable laws and the ethical guidelines outlined 
+in the project documentation.
