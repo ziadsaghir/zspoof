@@ -20,20 +20,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+ADDITIONAL TERMS FOR EDUCATIONAL AND SECURITY RESEARCH:
 
-ADDITIONAL TERMS AND CONDITIONS
+This software is provided for educational and authorized security research 
+purposes only. Users are solely responsible for ensuring their use complies 
+with all applicable laws and regulations.
 
-This software is provided for educational and authorized security testing 
-purposes only. The copyright holder and contributors assume no liability 
-for misuse of this software. Users are solely responsible for ensuring their 
-use of this software complies with all applicable laws and regulations.
-
-Unauthorized use of this software to access, intercept, or manipulate network 
-traffic without explicit permission is strictly prohibited and may violate 
-criminal laws including but not limited to the Computer Fraud and Abuse Act 
-(CFAA) in the United States and equivalent legislation in other jurisdictions.
-
-By using this software, you acknowledge that you have read, understood, and 
-agree to comply with all applicable laws and the ethical guidelines outlined 
-in the project documentation.
+The author assumes no liability for misuse or damage caused by this software.

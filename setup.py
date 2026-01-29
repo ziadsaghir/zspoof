@@ -1,32 +1,21 @@
-#!/usr/bin/env python3
 """
-ZSPOOF ULTIMATE - Setup Script
-Enables installation as a Python package
+ZSPOOF v3.0.0 - Setup Configuration
+AI-Powered Network Security Platform
 """
 
 from setuptools import setup, find_packages
 from pathlib import Path
 
-# Read the README file
-readme_file = Path(__file__).parent / "README.md"
-long_description = readme_file.read_text(encoding="utf-8") if readme_file.exists() else ""
-
-# Read requirements
-requirements_file = Path(__file__).parent / "requirements.txt"
-requirements = []
-if requirements_file.exists():
-    requirements = [
-        line.strip() 
-        for line in requirements_file.read_text().split('\n')
-        if line.strip() and not line.startswith('#')
-    ]
+# Read README
+readme = Path(__file__).parent / "README.md"
+long_description = readme.read_text(encoding="utf-8") if readme.exists() else ""
 
 setup(
     name="zspoof",
-    version="2.1.0",
+    version="3.0.0",
     author="Ziad SAGHIR",
-    author_email="ziadsghir8@gmail.com",
-    description="Advanced Network Identity Manipulation Framework for Security Research",
+    author_email="ziadsaghir8@gmail.com",
+    description="AI-Powered MAC Spoofing Framework for Security Research",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ziadsaghir/zspoof",
@@ -35,13 +24,12 @@ setup(
         "Source": "https://github.com/ziadsaghir/zspoof",
         "Documentation": "https://github.com/ziadsaghir/zspoof#readme",
     },
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Information Technology",
-        "Intended Audience :: Science/Research",
         "Topic :: Security",
-        "Topic :: System :: Networking",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
@@ -49,34 +37,36 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
-        "Programming Language :: C++",
         "Operating System :: POSIX :: Linux",
-        "Operating System :: Microsoft :: Windows",
         "Operating System :: MacOS",
-        "Environment :: Console",
-    ],
-    keywords=[
-        "security", "penetration-testing", "red-team", "mac-spoofing",
-        "arp-spoofing", "network-security", "ethical-hacking", "infosec",
-        "cybersecurity", "networking", "mitm", "spoofing"
     ],
     python_requires=">=3.8",
-    install_requires=requirements,
+    install_requires=[
+        "tqdm>=4.66.0",
+        "colorama>=0.4.6",
+        "flask>=3.0.0",
+        "flask-cors>=4.0.0",
+        "flask-socketio>=5.3.5",
+        "python-socketio>=5.10.0",
+        "eventlet>=0.33.3",
+        "scapy>=2.5.0",
+        "netifaces>=0.11.0",
+        "psutil>=5.9.0",
+    ],
     extras_require={
         "dev": [
-            "black>=22.1.0",
-            "pylint>=2.15.0",
             "pytest>=7.0.0",
+            "pytest-cov>=4.0.0",
+            "black>=23.0.0",
+            "flake8>=6.0.0",
+            "mypy>=1.0.0",
         ],
-    },
-    include_package_data=True,
-    package_data={
-        "": ["*.txt", "*.md", "*.cpp", "*.h"],
     },
     entry_points={
         "console_scripts": [
-            "zspoof=src.zspoof_ultimate:main",
+            "zspoof=zspoof_ultimate:main",
         ],
     },
+    include_package_data=True,
     zip_safe=False,
 )
